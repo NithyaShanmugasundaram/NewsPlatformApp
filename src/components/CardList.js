@@ -8,7 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
-
+/*------Style for the cards---------*/
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 375,
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: "56.25%", // 16:9
+    paddingTop: "56.25%",
   },
   avatar: {
     backgroundColor: "#bdbdbd",
@@ -31,9 +31,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
   },
 }));
-
+/*------Populate the cards with fetched articles---------*/
 const CardList = (props) => {
-  const classes = useStyles();
+const classes = useStyles();
 
   return (
     <Grid
@@ -43,10 +43,12 @@ const CardList = (props) => {
       alignItems="baseline"
       spacing={1}
     >
+    
       {props.articles.map((article, i) => {
         return (
           <Grid item xs={12} md={4} sm={6} key={i}>
             <Card className={classes.root}>
+          {/*-------Avatar details-------- */}
               <CardHeader
                 avatar={
                   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -56,8 +58,10 @@ const CardList = (props) => {
                 title={article.name}
                 subheader={article.date}
               />
+          {/*--------- Image ---------*/}
               <CardMedia className={classes.media} image={article.imageUrl} />
               <CardContent>
+          {/* --------- Title --------- */}
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -68,6 +72,7 @@ const CardList = (props) => {
                     ? `${article.title}`
                     : `${article.title.substring(0, 25)}...`}
                 </Typography>
+          {/*------- Description------- */}
                 <Typography
                   variant="body2"
                   color="textSecondary"
@@ -79,7 +84,7 @@ const CardList = (props) => {
                     : `${article.description.substring(0, 40)}...`}
                 </Typography>
               </CardContent>
-
+          {/*----- Hyperlink for the news article------ */}
               <CardActions disableSpacing>
                 <Button size="small" color="primary">
                   <a href={article.url}>Read More</a>
