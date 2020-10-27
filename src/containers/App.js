@@ -8,7 +8,7 @@ import { fetchArticles, clearArticles } from "../actions/articleAction";
 import "./App.css";
 
 /*--------Global variables declaration ---------*/
-const apiKey = "Please Enter your APIKEY";
+const apiKey = "Please enter your own APIKEY";
 const totalArticle =30;
 const pageSize = 5;
 let currPage = 1;
