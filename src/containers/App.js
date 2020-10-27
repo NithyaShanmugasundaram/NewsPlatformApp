@@ -5,9 +5,10 @@ import Header from "../components/Header";
 import Loader from "../components/Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchArticles, clearArticles } from "../actions/articleAction";
+import "./App.css";
 
 /*--------Global variables declaration ---------*/
-const apiKey = "Please insert your apikey";
+const apiKey = "Please Enter your APIKEY";
 const totalArticle =30;
 const pageSize = 5;
 let currPage = 1;
@@ -87,8 +88,7 @@ class App extends React.Component {
         <Header value={inputValue} onChange={this.handleChange} />
         {/*----------- Infinite scroll------ */}
         {articles ? (
-          <InfiniteScroll
-            style={{ marginTop: "100px" }}
+         <InfiniteScroll
             dataLength={articles.length}
             next={this.getMoreArticles}
             hasMore={hasMore}
@@ -100,6 +100,7 @@ class App extends React.Component {
           >
             {<CardList articles={articles} />}
           </InfiniteScroll>
+        
         ) : null}
       </div>
       );

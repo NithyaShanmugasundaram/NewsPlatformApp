@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     background: "#3c3b63",
     text: "#ffffff",
     boxShadow: "rgba(0,0,0,0.2)", 
-    height:"80px",
+    height:"70px",
   },
   toolbar:{
     display: 'flex',
@@ -78,7 +78,7 @@ export default function SearchAppBar(props) {
             <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

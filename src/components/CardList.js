@@ -8,15 +8,23 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Avatar from "@material-ui/core/Avatar";
+
 /*------Style for the cards---------*/
 const useStyles = makeStyles((theme) => ({
+  cards: {
+    paddingLeft: "50px",
+    paddingRight: "50px",
+    marginTop:'15px'
+  },
   root: {
-    maxWidth: 375,
+    maxWidth: 370,
+    height: 400,
     boxShadow: "rgba(0,0,0,0.2)",
+    padding:'5px',
   },
   media: {
     height: 0,
-    paddingTop: "56.25%",
+    paddingTop: "56%",
   },
   avatar: {
     backgroundColor: "#bdbdbd",
@@ -33,22 +41,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 /*------Populate the cards with fetched articles---------*/
 const CardList = (props) => {
-const classes = useStyles();
+  const classes = useStyles();
 
   return (
     <Grid
       container
       direction="row"
-      justify="space-around"
-      alignItems="baseline"
+      justify="center"
+      alignItems="stretch"
       spacing={1}
+      className={classes.cards}
     >
-    
       {props.articles.map((article, i) => {
         return (
           <Grid item xs={12} md={4} sm={6} key={i}>
             <Card className={classes.root}>
-          {/*-------Avatar details-------- */}
+              {/*-------Avatar details-------- */}
               <CardHeader
                 avatar={
                   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -58,10 +66,10 @@ const classes = useStyles();
                 title={article.name}
                 subheader={article.date}
               />
-          {/*--------- Image ---------*/}
+              {/*--------- Image ---------*/}
               <CardMedia className={classes.media} image={article.imageUrl} />
               <CardContent>
-          {/* --------- Title --------- */}
+                {/* --------- Title --------- */}
                 <Typography
                   gutterBottom
                   variant="h5"
@@ -72,7 +80,7 @@ const classes = useStyles();
                     ? `${article.title}`
                     : `${article.title.substring(0, 25)}...`}
                 </Typography>
-          {/*------- Description------- */}
+                {/*------- Description------- */}
                 <Typography
                   variant="body2"
                   color="textSecondary"
@@ -84,7 +92,7 @@ const classes = useStyles();
                     : `${article.description.substring(0, 40)}...`}
                 </Typography>
               </CardContent>
-          {/*----- Hyperlink for the news article------ */}
+              {/*----- Hyperlink for the news article------ */}
               <CardActions disableSpacing>
                 <Button size="small" color="primary">
                   <a href={article.url}>Read More</a>
